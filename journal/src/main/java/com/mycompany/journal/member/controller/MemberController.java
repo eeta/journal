@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mycompany.journal.member.mapper.MemberSQLMapper;
+import com.mycompany.journal.member.service.MemberServiceImpl;
 import com.mycompany.journal.vo.MemberVo;
 
 @Controller
@@ -12,7 +12,7 @@ import com.mycompany.journal.vo.MemberVo;
 public class MemberController {
 	
 	@Autowired
-	private MemberSQLMapper memberSQLMapper;
+	private MemberServiceImpl memberService;
 	
 	@RequestMapping("sign_in_page.do")
 	public String signInPage() {
@@ -29,8 +29,8 @@ public class MemberController {
 	@RequestMapping("sign_up_process.do")
 	public String signUpProcess(MemberVo param) {
 		
-		memberSQLMapper.insert(param);
+		memberService.signUp(param);
 		
-		return "member/sign_up_complete";
+		return "member/sign_up_complete_page";
 	}
 }
