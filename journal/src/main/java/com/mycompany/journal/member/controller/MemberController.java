@@ -52,4 +52,12 @@ public class MemberController {
 			
 		}
 	}
+	
+	@RequestMapping("sign_out_process.do")
+	public String signOutProcess(HttpSession session) {
+		
+		session.invalidate();
+		
+		return "redirect:../content/main_page.do";
+	}
 }
