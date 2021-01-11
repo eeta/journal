@@ -17,5 +17,14 @@
 		)
 		]]>
 	</insert>
+	
+	<select id="selectByIdAndPw" resultType="com.mycompany.journal.vo.MemberVo">
+ 		<![CDATA[
+ 		SELECT * 
+ 		FROM member 
+ 		WHERE member_id = #{member_id} 
+ 		AND member_pw = #{member_pw}		
+ 		]]>
+ 	</select>
 
 </mapper>
