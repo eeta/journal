@@ -17,4 +17,11 @@ public class MemberServiceImpl {
 		memberSQLMapper.insert(vo);
 		
 	}
+	
+	public MemberVo signIn(MemberVo param) {
+		
+		MemberVo result = memberSQLMapper.selectByIdAndPw(param);
+		
+		return result;
+	}
 }
