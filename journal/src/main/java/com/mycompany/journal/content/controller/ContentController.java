@@ -50,4 +50,14 @@ public class ContentController {
 		
 		return "redirect:./main_page.do";
 	}
+	
+	@RequestMapping("read_content_page.do")
+	public String readContentPage(Model model,int content_no) {
+		
+		HashMap<String, Object> map = contentService.getContent(content_no);
+		
+		model.addAttribute("result",map);
+		
+		return "content/read_content_page";
+	}
 }

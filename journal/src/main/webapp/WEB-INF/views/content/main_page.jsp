@@ -36,7 +36,7 @@
 		<c:forEach items="${resultList}" var="data"> 
 			<tr>
 				<td>${data.contentVo.content_no}</td>
-				<td>${data.contentVo.content_title}</td>
+				<td><a href="${pageContext.request.contextPath}/content/read_content_page.do?content_no=${data.contentVo.content_no}">${data.contentVo.content_title}</a></td>
 				<td>${data.contentVo.content_readcount}</td>
 				<td>${data.memberVo.member_nick}</td>
 				<td>${data.contentVo.content_writedate}</td>

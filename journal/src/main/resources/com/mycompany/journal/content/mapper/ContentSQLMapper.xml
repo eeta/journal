@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mycompany.journal.content.mapper.ContentSQLMapper">
 
+	<!-- 글 작성 -->
 	<insert id="insert">
 		<![CDATA[
 		INSERT INTO content VALUES(
@@ -16,6 +17,7 @@
 		]]>
 	</insert>
 	
+	<!-- 글 목록 보기 -->
 	<select id="selectAll" resultType="com.mycompany.journal.vo.ContentVo">
 		<![CDATA[
 			SELECT * 
@@ -23,5 +25,14 @@
 			ORDER BY content_no DESC
 		]]>
 	</select>
-
+	
+	<!-- 글 보기 -->
+	<select id="selectByNo" resultType="com.mycompany.journal.vo.ContentVo">
+		<![CDATA[
+			SELECT *
+			FROM content
+			WHERE content_no = #{no}
+		]]>
+	</select>
+	
 </mapper>

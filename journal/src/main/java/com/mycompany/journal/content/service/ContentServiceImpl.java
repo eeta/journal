@@ -47,4 +47,18 @@ public class ContentServiceImpl {
 		return resultList;
 	}
 	
+	public HashMap<String,Object> getContent(int contentNo){
+		
+		// 출력 데이터 받아 오기
+		ContentVo contentVo = contentSQLMapper.selectByNo(contentNo);
+		int member_no = contentVo.getMember_no();
+		MemberVo memberVo = memberSQLMapper.selectByNo(member_no);
+		
+		HashMap<String,Object> map = new HashMap<String,Object>(); 
+		map.put("memberVo", memberVo);
+		map.put("contentVo", contentVo);
+		
+		return map;
+	}
+	
 }
