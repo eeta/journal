@@ -20,6 +20,15 @@
 			<a href="${pageContext.request.contextPath}/member/sign_in_page.do">로그인 페이지로</a>
 		</c:otherwise>
 	</c:choose>
+	
+	<br>
+	제목 리스트 출력<br>
+	
+	<c:choose>
+		<c:when test="${!empty sessionUser}">
+			<a href="${pageContext.request.contextPath}/content/write_content_page.do">글쓰기</a>
+		</c:when>
+	</c:choose>
 
 </body>
 </html>
