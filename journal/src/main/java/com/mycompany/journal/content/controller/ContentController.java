@@ -12,4 +12,10 @@ public class ContentController {
 		
 		return "content/main_page";
 	}
+	
+	@RequestMapping("write_content_page.do")
+	public String writeContentPage() {
+		
+		return "content/write_content_page";
+	}
 }
