@@ -18,4 +18,10 @@ public class ContentController {
 		
 		return "content/write_content_page";
 	}
+	
+	@RequestMapping("write_content_process.do")
+	public String writeContentProcess() {
+		
+		return "redirect:./main_page.do";
+	}
 }
