@@ -1,9 +1,13 @@
 package com.mycompany.journal.content.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.journal.content.service.ContentServiceImpl;
@@ -18,7 +22,11 @@ public class ContentController {
 	private ContentServiceImpl contentService;
 	
 	@RequestMapping("main_page.do")
-	public String mainPage() {
+	public String mainPage(Model model) {
+		
+		ArrayList<HashMap<String, Object>> resultList = contentService.getContentList();
+		
+		model.addAttribute("resultList", resultList);
 		
 		return "content/main_page";
 	}

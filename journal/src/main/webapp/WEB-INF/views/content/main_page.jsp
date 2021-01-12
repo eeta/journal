@@ -22,7 +22,27 @@
 	</c:choose>
 	
 	<br>
+	<br>
 	제목 리스트 출력<br>
+	<br>
+	<table border="1">
+		<tr>
+			<td>글번호</td>
+			<td>제목</td>
+			<td>조회수</td>
+			<td>작성자</td>
+			<td>작성일</td>
+		</tr>
+		<c:forEach items="${resultList}" var="data"> 
+			<tr>
+				<td>${data.contentVo.content_no}</td>
+				<td>${data.contentVo.content_title}</td>
+				<td>${data.contentVo.content_readcount}</td>
+				<td>${data.memberVo.member_nick}</td>
+				<td>${data.contentVo.content_writedate}</td>
+			</tr>
+		</c:forEach>
+	</table>
 	
 	<c:choose>
 		<c:when test="${!empty sessionUser}">
